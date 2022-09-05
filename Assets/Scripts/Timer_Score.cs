@@ -36,6 +36,7 @@ public class Timer_Score : MonoBehaviour
             Debug.Log("Game Over");
             Time.timeScale = 0f;
             gameON = false;
+            UIController.instance.LeaderboardOn();
         }
 
         setText();
