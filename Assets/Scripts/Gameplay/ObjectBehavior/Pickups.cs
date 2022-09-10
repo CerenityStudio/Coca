@@ -14,6 +14,11 @@ public class Pickups : MonoBehaviourPun
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            return;
+        }
+
         if (collision.CompareTag("Player"))
         {
             PlayerController player = collision.gameObject.GetComponent<PlayerController>();
@@ -30,7 +35,6 @@ public class Pickups : MonoBehaviourPun
             {
                 player.photonView.RPC("GetFlag", player.photonPlayer, 50);
             }
-
             PhotonNetwork.Destroy(gameObject);
         }
     }

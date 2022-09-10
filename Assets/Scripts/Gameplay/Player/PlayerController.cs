@@ -3,12 +3,11 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class PlayerController : MonoBehaviourPun
+public class PlayerController : MonoBehaviourPun, IPunObservable
 {
     #region VARIABLE
     [HideInInspector]
     public int id;
-    
 
     [Header("Info")]
     public float moveSpeed = 5f;
@@ -57,6 +56,8 @@ public class PlayerController : MonoBehaviourPun
         id = player.ActorNumber;
         photonPlayer = player;
 
+        GameManager.instance.players[id - 1] = this;
+
         if (player.IsLocal)
             me = this;
         else
@@ -83,9 +84,22 @@ public class PlayerController : MonoBehaviourPun
 
     IEnumerator Spawn(Vector3 spawnPos)
     {
-        yield return new WaitForSeconds(0);
+        yield return new WaitForSeconds(1f);
+
         transform.position = spawnPos;
         rb.isKinematic = false;
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(movement);
+        }
+        else
+        {
+            movement = (Vector2)stream.ReceiveNext();
+        }
     }
     #endregion
 }

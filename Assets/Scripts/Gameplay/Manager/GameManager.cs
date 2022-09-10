@@ -6,11 +6,12 @@ public class GameManager : MonoBehaviourPun
 {
     [Header("Players")]
     public string PlayerPrefabPath;
+
+    public PlayerController[] players;
+
     public Transform[] spawnPoints;
 
     private int playersInGame;
-
-    public PlayerController[] players;
 
     public static GameManager instance;
 
