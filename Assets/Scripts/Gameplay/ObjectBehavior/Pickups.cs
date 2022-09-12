@@ -35,7 +35,7 @@ public class Pickups : MonoBehaviourPun
             {
                 player.photonView.RPC("GetFlag", player.photonPlayer, 50);
             }
-            PhotonNetwork.Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 }
