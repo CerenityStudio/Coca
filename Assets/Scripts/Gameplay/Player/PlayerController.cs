@@ -84,6 +84,9 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
         flag += flagToGive;
 
         FlagUI.instance.UpdateFlagText(flag);
+
+        if (pv.IsMine)
+            pv.RPC("RPC_SetPlayerScore", RpcTarget.AllBuffered, PhotonNetwork.LocalPlayer.ActorNumber, flag);
     }
 
     IEnumerator Spawn(Vector3 spawnPos)
@@ -111,5 +114,11 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
     void RPC_SetPlayersData(int _playerId, string _playerName, int _playerScore)
     {
         _scoreManager.AddPlayerData(_playerId, _playerName, _playerScore);
+    }
+
+    [PunRPC]
+    void RPC_SetPlayerScore(int _playerId, int _playerScore)
+    {
+        _scoreManager.SetPlayerScore(_playerId, _playerScore);
     }
 }

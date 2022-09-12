@@ -30,5 +30,5 @@ public class ScoreManager : MonoBehaviour
         playerScore.PlayerScore = _playerScore;
     }
 
-    public IEnumerable<MScore> GetPlayerDataScore() => ScorePlayerList.OrderByDescending(player => player.PlayerScore).ThenBy(player => player.PlayerName);
+    public List<MScore> GetListPlayerDataScore() => ScorePlayerList.OrderByDescending(player => player.PlayerScore).ThenBy(player => player.PlayerName).ToList();
 }
