@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
     private Vector2 movement;
     private Rigidbody2D rb;
     private Animator anim;
+    ScoreManager _scoreManager;
+    [SerializeField] private PhotonView pv;
     #endregion
 
     public static PlayerController me;
@@ -25,13 +27,15 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
     #region UNITY FUNCTION
     private void Awake()
     {
-        
+        _scoreManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>();
     }
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        pv.RPC("RPC_SetPlayersData", RpcTarget.AllBuffered, PhotonNetwork.LocalPlayer.ActorNumber, PhotonNetwork.LocalPlayer.NickName, flag);
     }
 
     private void Update()
@@ -102,4 +106,10 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
         }
     }
     #endregion
+
+    [PunRPC]
+    void RPC_SetPlayersData(int _playerId, string _playerName, int _playerScore)
+    {
+        _scoreManager.AddPlayerData(_playerId, _playerName, _playerScore);
+    }
 }
