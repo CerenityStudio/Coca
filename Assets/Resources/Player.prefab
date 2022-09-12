@@ -15,10 +15,10 @@ GameObject:
   - component: {fileID: 2046791818575123955}
   - component: {fileID: 2046791818575123967}
   - component: {fileID: 2046791818575123962}
-  - component: {fileID: 2046791818575123954}
   - component: {fileID: 2331087866425696069}
   - component: {fileID: 2046791818575123961}
   - component: {fileID: 1711565224883507558}
+  - component: {fileID: 4052565809068588313}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -182,21 +182,6 @@ MonoBehaviour:
   moveSpeed: 5
   flag: 0
   pv: {fileID: 2331087866425696069}
---- !u!114 &2046791818575123954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2046791818575123958}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7677bd5533a269f4e9239157612a65f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  rb: {fileID: 2046791818575123953}
-  animator: {fileID: 2046791818575123960}
 --- !u!114 &2331087866425696069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,3 +250,19 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
+--- !u!114 &4052565809068588313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046791818575123958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6927a32206bd4d4cad6420365b5658e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textTimer: {fileID: 0}
+  Guide: {fileID: 0}
+  GameOn: {fileID: 0}
+  waktu: 0
