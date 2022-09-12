@@ -14,10 +14,10 @@ public class Pickups : MonoBehaviourPun
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!PhotonNetwork.IsMasterClient)
-        {
-            return;
-        }
+        //if (!PhotonNetwork.IsMasterClient)
+        //{
+        //    return;
+        //}
 
         if (collision.CompareTag("Player"))
         {
@@ -35,7 +35,7 @@ public class Pickups : MonoBehaviourPun
             {
                 player.photonView.RPC("GetFlag", player.photonPlayer, 50);
             }
-            Destroy(gameObject);
+            PhotonNetwork.Destroy(gameObject);
         }
     }
 }

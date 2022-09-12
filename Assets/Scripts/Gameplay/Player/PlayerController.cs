@@ -12,12 +12,11 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
     [Header("Info")]
     public float moveSpeed = 5f;
     public int flag;
+    public Vector2 movement;
 
     [Header("Components")]
     public Player photonPlayer;
-    private Vector2 movement;
     public Rigidbody2D rb;
-    public Animator anim;
     ScoreManager _scoreManager;
     [SerializeField] private PhotonView pv;
     #endregion
@@ -44,12 +43,6 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
         {
             return;
         }
-        Movement();
-    }
-
-    private void FixedUpdate()
-    {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
     #endregion
 
@@ -68,15 +61,7 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
             rb.isKinematic = false;
     }
 
-    void Movement()
-    {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
-        anim.SetFloat("Horizontal", movement.x);
-        anim.SetFloat("Vertical", movement.y);
-        anim.SetFloat("Speed", movement.sqrMagnitude);
-    }
+    
 
     [PunRPC]
     void GetFlag(int flagToGive)

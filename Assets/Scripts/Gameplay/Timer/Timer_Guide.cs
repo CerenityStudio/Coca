@@ -13,21 +13,13 @@ public class Timer_Guide : MonoBehaviour
 
     public float waktu;
 
-    public PlayerController pc;
-
-    public void setText()
-    {
-        int menit = Mathf.FloorToInt(waktu / 60);
-        int detik = Mathf.FloorToInt(waktu % 60);
-        textTimer.text = menit.ToString("00") + ":" + detik.ToString("00");
-    }
-
     float s;
+
+    public bool gameRunning = false;
 
     private void Start()
     {
         GameOn.SetActive(false);
-        pc.rb.isKinematic = true;
     }
 
     void Update()
@@ -41,11 +33,16 @@ public class Timer_Guide : MonoBehaviour
 
         if (waktu <= 0)
         {
-            pc.rb.isKinematic = false;
             Guide.SetActive(false);
             GameOn.SetActive(true);
+            gameRunning = true;
         }
-
         setText();
+    }
+    public void setText()
+    {
+        int menit = Mathf.FloorToInt(waktu / 60);
+        int detik = Mathf.FloorToInt(waktu % 60);
+        textTimer.text = menit.ToString("00") + ":" + detik.ToString("00");
     }
 }

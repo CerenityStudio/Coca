@@ -663,6 +663,7 @@ GameObject:
   - component: {fileID: 149065068}
   - component: {fileID: 149065067}
   - component: {fileID: 149065069}
+  - component: {fileID: 149065070}
   m_Layer: 5
   m_Name: Leaderboard
   m_TagString: Untagged
@@ -748,51 +749,28 @@ MonoBehaviour:
   - {fileID: 2141714268}
   - {fileID: 1139714096}
   _scoreManager: {fileID: 1331338485}
---- !u!1 &153008302
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 153008303}
-  - component: {fileID: 153008304}
-  m_Layer: 0
-  m_Name: UIController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &153008303
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153008302}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &153008304
+--- !u!114 &149065070
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153008302}
+  m_GameObject: {fileID: 149065065}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5916ef656d0dac488933106e0801edb, type: 3}
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leaderboardPanel: {fileID: 149065065}
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 954
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &156645862
 GameObject:
   m_ObjectHideFlags: 0
@@ -3451,7 +3429,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583039754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16, y: 21.4, z: 0}
+  m_LocalPosition: {x: -14.61, y: 23.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6056,7 +6034,7 @@ MonoBehaviour:
   Guide: {fileID: 654642783}
   GameOn: {fileID: 263825614}
   waktu: 30
-  pc: {fileID: 2046791818575123962, guid: 301011c77e9503c459a4a6d4c9137ce4, type: 3}
+  gameRunning: 0
 --- !u!4 &1214083122
 Transform:
   m_ObjectHideFlags: 0
@@ -6087,7 +6065,9 @@ MonoBehaviour:
   textTimer: {fileID: 768121448}
   waktu: 90
   gameON: 1
-  pc: {fileID: 2046791818575123962, guid: 301011c77e9503c459a4a6d4c9137ce4, type: 3}
+  leaderboardsPanel: {fileID: 149065065}
+  flagHandler: {fileID: 1705655840}
+  tg: {fileID: 1214083121}
 --- !u!1 &1228836696
 GameObject:
   m_ObjectHideFlags: 0
@@ -7299,7 +7279,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516330549}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -34.9, y: 22, z: 0}
+  m_LocalPosition: {x: -33.36, y: 23.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16127,7 +16107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847511168}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.8, y: 21.8, z: 0}
+  m_LocalPosition: {x: 3.8, y: 23.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
