@@ -181,6 +181,7 @@ MonoBehaviour:
   id: 0
   moveSpeed: 5
   flag: 0
+  pv: {fileID: 2331087866425696069}
 --- !u!114 &2046791818575123954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,6 +216,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
+  - {fileID: 2046791818575123962}
   - {fileID: 2046791818575123961}
   - {fileID: 1711565224883507558}
   sceneViewId: 0
