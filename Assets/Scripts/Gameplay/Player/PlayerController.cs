@@ -16,8 +16,8 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
     [Header("Components")]
     public Player photonPlayer;
     private Vector2 movement;
-    private Rigidbody2D rb;
-    private Animator anim;
+    public Rigidbody2D rb;
+    public Animator anim;
     ScoreManager _scoreManager;
     [SerializeField] private PhotonView pv;
     #endregion
@@ -32,8 +32,8 @@ public class PlayerController : MonoBehaviourPun, IPunObservable
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        //rb = GetComponent<Rigidbody2D>();
+        //anim = GetComponent<Animator>();
 
         pv.RPC("RPC_SetPlayersData", RpcTarget.AllBuffered, PhotonNetwork.LocalPlayer.ActorNumber, PhotonNetwork.LocalPlayer.NickName, flag);
     }

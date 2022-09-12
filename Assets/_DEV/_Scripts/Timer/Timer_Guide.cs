@@ -13,6 +13,8 @@ public class Timer_Guide : MonoBehaviour
 
     public float waktu;
 
+    public PlayerController pc;
+
     public void setText()
     {
         int menit = Mathf.FloorToInt(waktu / 60);
@@ -25,6 +27,7 @@ public class Timer_Guide : MonoBehaviour
     private void Start()
     {
         GameOn.SetActive(false);
+        pc.rb.isKinematic = true;
     }
 
     void Update()
@@ -38,6 +41,7 @@ public class Timer_Guide : MonoBehaviour
 
         if (waktu <= 0)
         {
+            pc.rb.isKinematic = false;
             Guide.SetActive(false);
             GameOn.SetActive(true);
         }

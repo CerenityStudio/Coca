@@ -10,6 +10,8 @@ public class Timer_Score : MonoBehaviour
     public float waktu;
     public bool gameON = true;
 
+    public PlayerController pc;
+
     public void setText()
     {
         int menit = Mathf.FloorToInt(waktu / 60);
@@ -34,7 +36,7 @@ public class Timer_Score : MonoBehaviour
         if (gameON && waktu <= 0)
         {
             Debug.Log("Game Over");
-            Time.timeScale = 0f;
+            pc.rb.isKinematic = true;
             gameON = false;
             UIController.instance.LeaderboardOn();
         }
